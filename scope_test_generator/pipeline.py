@@ -3,15 +3,14 @@
 import torch
 from typing import ClassVar
 
-from scope.core.pipelines.interface import Pipeline
-from scope.core.pipelines.schema import BasePipelineConfig
+from scope_worker.pipelines import Pipeline, BasePipelineConfig
 
 
 class TestGeneratorConfig(BasePipelineConfig):
     """Configuration for test generator pipeline."""
 
-    pipeline_id: ClassVar[str] = "test-generator"
-    pipeline_name: ClassVar[str] = "Test Generator"
+    pipeline_id: ClassVar[str] = "test-generator-2"
+    pipeline_name: ClassVar[str] = "Test Generator 2"
     pipeline_description: ClassVar[str] = "Generates simple animated test patterns"
     pipeline_version: ClassVar[str] = "0.1.0"
 
