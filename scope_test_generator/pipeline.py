@@ -20,7 +20,7 @@ class TestGeneratorConfig(BasePipelineConfig):
     default_mode: ClassVar[str] = "text"
     height: int = 512
     width: int = 512
-    usage: ClassVar[list[str]] = ["preprocessor", "pipeline]
+    usage: ClassVar[list[str]] = ["preprocessor", "pipeline"]
 
 
 class TestGeneratorPipeline(Pipeline):
