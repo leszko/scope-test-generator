@@ -1,11 +1,11 @@
 """Test generator plugin for Scope."""
 
-import scope_worker.plugins
+from scope.core.plugins import hookimpl
 
 from .pipeline import TestGeneratorPipeline
 
 
-@scope_worker.plugins.hookimpl
+@hookimpl
 def register_pipelines(register):
     """Register the test generator pipeline."""
     register(TestGeneratorPipeline)

@@ -3,7 +3,9 @@
 import torch
 from typing import ClassVar
 
-from scope_worker.pipelines import Pipeline, BasePipelineConfig
+from scope.core.pipelines.interface import Pipeline
+from scope.core.pipelines.base_schema import BasePipelineConfig
+from scope.server.artifacts import HuggingfaceRepoArtifact
 
 
 class TestGeneratorConfig(BasePipelineConfig):
@@ -15,12 +17,21 @@ class TestGeneratorConfig(BasePipelineConfig):
     pipeline_version: ClassVar[str] = "0.1.0"
 
     supports_prompts: ClassVar[bool] = False
+    requires_models: ClassVar[bool] = True
 
     supported_modes: ClassVar[list[str]] = ["text"]
     default_mode: ClassVar[str] = "text"
     height: int = 512
     width: int = 512
-    usage: ClassVar[list[str]] = ["preprocessor", "pipeline"]
+
+    # Define artifacts using the modern method
+    # This will automatically download model files when the pipeline is used
+    artifacts: ClassVar[list] = [
+        HuggingfaceRepoArtifact(
+            repo_id="JaydenLu666/Reward-Forcing-T2V-1.3B",
+            files=["rewardforcing.pt"],
+        ),
+    ]
 
 
 class TestGeneratorPipeline(Pipeline):
