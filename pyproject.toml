@@ -1,10 +1,9 @@
 [project]
-name = "scope-test-generator-2"
+name = "scope-test-generator"
 version = "0.1.0"
 dependencies = [
-    "scope-worker-base",
-    "click==3.1",  # sample conflicting dependency
+    "daydream-scope",
 ]
 
 [project.entry-points.scope]
-test-generator-2 = "scope_test_generator"
+test-generator = "scope_test_generator"
